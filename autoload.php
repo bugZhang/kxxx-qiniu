@@ -3,7 +3,7 @@
 function classLoader($class)
 {
     $path = str_replace('\\', DIRECTORY_SEPARATOR, $class);
-    $file = __DIR__ . '/' . $path . '.php';
+    $file = __DIR__ . '/sdk/' . $path . '.php';
 
     if (file_exists($file)) {
         require_once $file;
@@ -11,4 +11,4 @@ function classLoader($class)
 }
 spl_autoload_register('classLoader');
 
-require_once  __DIR__ . '/Qiniu/functions.php';
+require_once  __DIR__ . '/sdk/Qiniu/functions.php';
