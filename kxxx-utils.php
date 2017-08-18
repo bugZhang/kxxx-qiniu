@@ -40,7 +40,7 @@ class KxxxUtils{
 
         $content = $post['post_content'];
         if(!$content){
-            return '';
+            return $post;
         }
 
         $post['post_content'] = preg_replace_callback('|<img.*?src=\\\[\'"](.*?)\\\[\'"].*?>|i',array($this, 'kxxx_remote_images_handler'),$content);
