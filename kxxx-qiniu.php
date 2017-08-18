@@ -17,7 +17,12 @@ add_action('wp_loaded', 'kxxx_qiniu_start');
 
 function kxxx_qiniu_start(){
     $utils  = new \Kxxx\Admin\KxxxUtils();
-    add_filter('the_content', array($utils, 'kxxx_get_image_from_content'), 10);
+    add_filter('the_content', array($utils, 'kxxx_get_cdn_content'), 10);
+
+//    add_action('save_post', array($utils, 'kxxx_save_post_action'), 10, 2);
+
+    add_filter('wp_insert_post_data', array($utils, 'kxxx_save_post_action'), 10, 2);
+
 }
 
 
