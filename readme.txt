@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: Jerry Zhang
-Donate link: ![donate](http://images.kelenews.com/IMG_20170818_154319.jpg "Jerry")
+Donate link: http://images.kelenews.com/1503039339786-01.jpeg
 Tags: CDN, 七牛, qiniu
 Requires at least: 4.6
 Tested up to: 4.7
@@ -8,74 +8,27 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-简单的七牛CDN扩展
+最简单的七牛CDN扩展
 
 == Description ==
 
-暂时只实现最简单的功能
+七牛云存储的WordPress扩展，实现简单的链接转换功能，本地链接自动转为CDN链接。
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
-
-e.g.
-
-1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
-1. Use the Settings->Plugin Name screen to configure the plugin
-1. (Make your instructions match the desired user flow for activating and installing your plugin. Include any steps that might be needed for explanatory purposes)
-
-
-== Frequently Asked Questions ==
-
-= A question that someone might have =
-
-An answer to that question.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
+1. 下载此仓库文件，上传到 `/wp-content/plugins/plugin-name` 下
+2. 在WordPress后台激活插件
+3. 把在七牛云平台申请的加速域名配置到选项
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+七牛云存储 扩展插件
 
 == Changelog ==
 
 = 1.0 =
-* A change since the previous version.
+* 第一版暂时只实现最简单的链接转换功能，接下来逐步完善
 
 == Arbitrary section ==
 
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`
+刚开始学习写plugin，难免会有bug，有问题或者新的需求请不吝赐教，email：zjk6700@mail.com

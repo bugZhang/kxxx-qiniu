@@ -37,9 +37,9 @@ class KxxxAdminOptions{
         $options = get_option($this->option_group);
         $basic_fields = array(
             'host'		=> array('title'=>'七牛域名',			'type'=>'url',		'description'=>'设置为七牛提供的测试域名或者在七牛绑定的域名。<strong>注意要域名前面要加上 http://</strong>。<br />如果博客安装的是在子目录下，比如 http://www.xxx.com/blog，这里也需要带上子目录 /blog '),
-            'bucket'	=> array('title'=>'七牛空间名',		'type'=>'text',		'description'=>'设置为你在七牛提供的空间名。'),
-            'access'	=> array('title'=>'ACCESS KEY',		'type'=>'text',		'description'=>''),
-            'secret'	=> array('title'=>'SECRET KEY',		'type'=>'text',		'description'=>''),
+//            'bucket'	=> array('title'=>'七牛空间名',		'type'=>'text',		'description'=>'设置为你在七牛提供的空间名。'),
+//            'access'	=> array('title'=>'ACCESS KEY',		'type'=>'text',		'description'=>''),
+//            'secret'	=> array('title'=>'SECRET KEY',		'type'=>'text',		'description'=>''),
         );
 
         foreach ($basic_fields as $key => $field){
