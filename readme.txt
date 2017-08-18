@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: Jerry Zhang
-Donate link: http://example.com/
+Donate link: ![donate](http://images.kelenews.com/IMG_20170818_154319.jpg "Jerry")
 Tags: CDN, 七牛, qiniu
 Requires at least: 4.6
 Tested up to: 4.7
