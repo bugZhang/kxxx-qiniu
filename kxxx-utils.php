@@ -60,7 +60,7 @@ class KxxxUtils{
         if(empty($img_url)) return '';
 
         if(stripos($matches[0], get_home_url()) !== false){
-            return '';
+            return $matches[0];
         }
 
         $result  = $this->kxxx_fetch_remote_image($img_url, array('method'=>'FILE'));
