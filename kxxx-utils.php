@@ -46,7 +46,7 @@ class KxxxUtils{
 
         $post_title = $post['post_title'];
         $post_name = $this->updateSlug($post_title);
-        if($post_name != 0){
+        if($post_name){
             $post['post_name'] = $post_name;
         }
 
