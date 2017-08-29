@@ -39,8 +39,15 @@ class KxxxUtils{
     public function kxxx_save_post_action($post, $arr){
 
         $content = $post['post_content'];
+
         if(!$content){
             return $post;
+        }
+
+        $post_title = $post['post_title'];
+        $post_name = $this->updateSlug($post_title);
+        if($post_name != 0){
+            $post['post_name'] = $post_name;
         }
 
         $post['post_content'] = preg_replace_callback('|<img.*?src=\\\[\'"](.*?)\\\[\'"].*?>|i',array($this, 'kxxx_remote_images_handler'),$content);
@@ -138,5 +145,21 @@ class KxxxUtils{
         fwrite($file, $file_content);
         fclose($file);
     }
+
+    public function updateSlug($post_title){
+
+        if($post_title){
+            $url = 'http://127.0.0.1:8080/pinyin/basic/permalink?text=' . $post_title;
+//            $url = 'http://pinyin.kxxx-tool.com:8080/pinyin/basic/permalink?text=' . $post_title;
+            $response = wp_remote_retrieve_body(wp_remote_get($url));
+            if($response){
+                $response = json_decode($response, true);
+            }
+            return ($response && $response['code'] == 'success') ? $response['str'] : 0;
+        }else{
+            return 0;
+        }
+    }
+
 
 }
