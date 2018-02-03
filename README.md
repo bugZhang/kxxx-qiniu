@@ -20,5 +20,7 @@
 
 Donate : 
 
-![donate](http://images.kelenews.com/1503039339786-01.jpeg "Jerry")
+![donate](http://images.kelenews.com/jerry/tool/Wxpay.jpg "Jerry-Wxpay")  ![donate](http://images.kelenews.com/jerry/tool/Alipay.jpg "Jerry-Alipay")
+
+
 
