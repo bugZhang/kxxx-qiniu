@@ -3,7 +3,11 @@ namespace Kxxx\Admin;
 
 class KxxxUtils{
 
-
+    /**
+     * @param $sourceStr   图片链接
+     * @param $cdnDomain    cdn域名
+     * @return mixed|string
+     */
     public function kxxx_convert_url_to_cdn($sourceStr, $cdnDomain){
         if(!$sourceStr){
             return '';
@@ -20,11 +24,13 @@ class KxxxUtils{
     public function kxxx_local_images_handler($matches){
 
         $img_url 	= trim($matches[1]);
-
         if(empty($img_url)) return;
-
         $options    = get_option('kxxx_qiniu_option');
-        return $this->kxxx_convert_url_to_cdn($matches[0], $options['host']);
+        if($options && $options['host']){
+            return $this->kxxx_convert_url_to_cdn($matches[0], $options['host']);
+        }else{
+            return $matches[0];
+        }
 
     }
 
@@ -38,8 +44,12 @@ class KxxxUtils{
      */
     public function kxxx_save_post_action($post, $arr){
 
-        $content = $post['post_content'];
+        $options    = get_option('kxxx_qiniu_option');
+        if(!$options || empty($options['fetch'])){
+            return $post;
+        }
 
+        $content = $post['post_content'];
         if(!$content){
             return $post;
         }

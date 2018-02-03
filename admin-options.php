@@ -36,10 +36,8 @@ class KxxxAdminOptions{
 
         $options = get_option($this->option_group);
         $basic_fields = array(
-            'host'		=> array('title'=>'七牛域名',			'type'=>'url',		'description'=>'设置为七牛提供的测试域名或者在七牛绑定的域名。<strong>注意要域名前面要加上 http://</strong>。<br />如果博客安装的是在子目录下，比如 http://www.xxx.com/blog，这里也需要带上子目录 /blog '),
-//            'bucket'	=> array('title'=>'七牛空间名',		'type'=>'text',		'description'=>'设置为你在七牛提供的空间名。'),
-//            'access'	=> array('title'=>'ACCESS KEY',		'type'=>'text',		'description'=>''),
-//            'secret'	=> array('title'=>'SECRET KEY',		'type'=>'text',		'description'=>''),
+            'host'		=> array('title' => '七牛域名', 'type'=>'url', 'description'=>'设置为七牛提供的测试域名或者在七牛绑定的域名。<br /><strong>注意要域名前面要加上 http://</strong>。<br />如果博客安装的是在子目录下，比如 http://www.xxx.com/blog，这里也需要带上子目录 /blog '),
+            'fetch'     => array('title' => '图片抓取', 'type' => 'checkbox', 'description' => ''),
         );
 
         foreach ($basic_fields as $key => $field){
@@ -48,7 +46,7 @@ class KxxxAdminOptions{
             $field['key'] = $key;
             $field['name'] = $this->option_group . '[' . $key . ']';
             $field['class'] = 'regular-text';
-            $field['value'] = $options[$key];
+            $field['value'] = isset($options[$key]) ? $options[$key] : '';
             add_settings_field($key, $label, array($this, 'kxxx_field_input_cb'), $this->option_group, $this->basic_section, $field);
 
         }
@@ -56,9 +54,13 @@ class KxxxAdminOptions{
     }
 
     public function kxxx_field_input_cb($arg){
-
         $value = $arg['value'] ? $arg['value'] : '';
-        echo '<input id="' . $arg['key'] . '" value="' . $value . '" name="' . $arg['name'] . '"  class="' . $arg['class'] . '">';
+        if($arg['type'] == 'checkbox'){
+            $checked = $value ? 'checked' : '';
+            echo '<input id="kxxx_' . $arg['key'] . '" value="1" name="' . $arg['name'] . '"  class="" type="checkbox" '.$checked.'>  抓取远程图片到本地';
+        }else{
+            echo '<input id="kxxx_' . $arg['key'] . '" value="' . $value . '" name="' . $arg['name'] . '"  class="' . $arg['class'] . '">';
+        }
         echo '<p class="description">' . $arg['description'] . '</p>';
     }
 

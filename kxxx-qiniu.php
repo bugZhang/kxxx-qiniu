@@ -9,7 +9,6 @@ Author URI: https://github.com/bugZhang
 */
 ?>
 <?php
-require_once 'autoload.php';
 require_once 'admin-options.php';
 require_once 'kxxx-utils.php';
 
