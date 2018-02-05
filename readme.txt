@@ -1,18 +1,19 @@
-=== 七牛云存储CDN加速插件 ===
+=== 远程抓取图片CDN加速插件 ===
 Contributors: JerryZhang
-Donate link: http://images.kelenews.com/1503039339786-01.jpeg
-Tags: CDN, 七牛, qiniu
+Donate link: http://images.kelenews.com/jerry/tool/Wxpay.jpg-w2h2
+Tags: CDN, 七牛, qiniu, 远程抓取图片
 Requires at least: 4.6
 Tested up to: 4.7
 Stable tag: 4.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-最简单的七牛CDN扩展
+一款抓取远程图片并对接七牛cdn的扩展
 
 == Description ==
 
-七牛云存储的WordPress扩展，实现简单的链接转换功能，本地链接自动转为CDN链接。
+七牛云存储的WordPress扩展，实现简单的链接转换功能，本地链接自动转为CDN链接。<br>
+可选是否抓取远程图片到本地，当然了，如果不打算使用cdn功能，也可单独使用远程远程图片的功能。
 1.编辑保存文字时将会把远程图片（非本网站域名下的图片）抓取保存到本地，并且把文章中的远程图片链接转换为本地链接
 2.前台展示内容时会自动把本地图片地址转换为cdn链接地址
 
@@ -21,6 +22,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 1. 下载此仓库文件，上传到 `/wp-content/plugins/plugin-name` 下
 2. 在WordPress后台激活插件
 3. 把在七牛云平台申请的加速域名配置到选项
+4. 可选择是否需要抓取远程图片到本地服务器
 
 == Screenshots ==
 
@@ -29,14 +31,13 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 == Changelog ==
 
 = 1.0 =
-* 第一版暂时只实现最简单的链接转换功能，接下来逐步完善
+* 第一版暂时只实现最简单的链接转换和抓取远程图片的功能，接下来逐步完善
 
 == Arbitrary section ==
 
 待实现功能：
-1. 未接入cdn之前的文章中远程图片链接转为cdn链接
-2. 编辑文章时可选是否需要拉取远程图片，可配置关键词不抓取
-3. ……
+1. 编辑文章时根据关键词过滤是否需要抓取远程图片
+2. ……
 
  == Upgrade Notice ==
 

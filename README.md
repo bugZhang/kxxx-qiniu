@@ -2,7 +2,8 @@
 
 ### Description
 
-七牛云存储的WordPress扩展，实现简单的链接转换功能，本地链接自动转为CDN链接。
+七牛云存储的WordPress扩展，实现简单的链接转换功能，本地链接自动转为CDN链接。<br>
+可选是否抓取远程图片到本地，当然了，如果不打算使用cdn功能，也可单独使用远程远程图片的功能。
 
 ### Installation
 
@@ -20,7 +21,7 @@
 
 Donate : 
 
-![donate](http://images.kelenews.com/jerry/tool/Wxpay.jpg-w2h2 "Jerry-Wxpay")  ![donate](http://images.kelenews.com/jerry/tool/Alipay.jpg-w2h2 "Jerry-Alipay")
+![donate](http://images.kelenews.com/jerry/tool/Wxpay.png-w2h2 "Jerry-Wxpay")  ![donate](http://images.kelenews.com/jerry/tool/Alipay.png-w2h2 "Jerry-Alipay")
 
 
 

@@ -29,7 +29,7 @@ class KxxxAdminOptions{
      * 添加顶级菜单
      */
     public function kxxx_create_menu(){
-        add_menu_page('kxxx_page_title', '七牛CDN', 'manage_options', $this->option_group, array($this, 'kxxx_options_page_html'));
+        add_menu_page('kxxx_page_title', '远程抓取', 'manage_options', $this->option_group, array($this, 'kxxx_options_page_html'));
     }
 
     public function kxxx_add_basic_fields(){
@@ -38,6 +38,7 @@ class KxxxAdminOptions{
         $basic_fields = array(
             'host'		=> array('title' => '七牛域名', 'type'=>'url', 'description'=>'设置为七牛提供的测试域名或者在七牛绑定的域名。<br /><strong>注意要域名前面要加上 http://</strong>。<br />如果博客安装的是在子目录下，比如 http://www.xxx.com/blog，这里也需要带上子目录 /blog '),
             'fetch'     => array('title' => '图片抓取', 'type' => 'checkbox', 'description' => ''),
+            'donate'    => array('title' => '支持一下', 'type' => 'image', 'description' => '', 'src' => 'http://images.kelenews.com/jerry/tool/Alipay.png-w15h15'),
         );
 
         foreach ($basic_fields as $key => $field){
@@ -58,6 +59,8 @@ class KxxxAdminOptions{
         if($arg['type'] == 'checkbox'){
             $checked = $value ? 'checked' : '';
             echo '<input id="kxxx_' . $arg['key'] . '" value="1" name="' . $arg['name'] . '"  class="" type="checkbox" '.$checked.'>  抓取远程图片到本地';
+        }elseif($arg['type'] == 'image'){
+            echo '<img src="'.$arg['src'].'">';
         }else{
             echo '<input id="kxxx_' . $arg['key'] . '" value="' . $value . '" name="' . $arg['name'] . '"  class="' . $arg['class'] . '">';
         }
