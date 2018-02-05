@@ -19,7 +19,7 @@ class KxxxAdminOptions{
         //注册设置组页面
         register_setting($this->option_group, $this->option_group);
         //在页面中添加配置section
-        add_settings_section($this->basic_section, 'Qiniu 基础设置', '', $this->option_group);
+        add_settings_section($this->basic_section, '基础设置', '', $this->option_group);
 
         $this->kxxx_add_basic_fields();
 
@@ -38,7 +38,7 @@ class KxxxAdminOptions{
         $basic_fields = array(
             'host'		=> array('title' => '七牛域名', 'type'=>'url', 'description'=>'设置为七牛提供的测试域名或者在七牛绑定的域名。<br /><strong>注意要域名前面要加上 http://</strong>。<br />如果博客安装的是在子目录下，比如 http://www.xxx.com/blog，这里也需要带上子目录 /blog '),
             'fetch'     => array('title' => '图片抓取', 'type' => 'checkbox', 'description' => ''),
-            'donate'    => array('title' => '支持一下', 'type' => 'image', 'description' => '', 'src' => 'http://images.kelenews.com/jerry/tool/Alipay.png-w15h15'),
+            'donate'    => array('title' => '支持一下', 'type' => 'image', 'description' => '', 'src' => 'http://images.kelenews.com/jerry/tool/Wxpay.png-w15h15'),
         );
 
         foreach ($basic_fields as $key => $field){
