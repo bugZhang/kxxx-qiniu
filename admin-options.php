@@ -1,7 +1,9 @@
 <?php
+
 namespace Kxxx\Admin;
 
-class KxxxAdminOptions{
+class KxxxAdminOptions
+{
 
 
     public $option_group = 'kxxx_qiniu_option';
@@ -14,7 +16,8 @@ class KxxxAdminOptions{
     }
 
 
-    public function kxxx_setting_init(){
+    public function kxxx_setting_init()
+    {
 
         //注册设置组页面
         register_setting($this->option_group, $this->option_group);
@@ -28,20 +31,22 @@ class KxxxAdminOptions{
     /**
      * 添加顶级菜单
      */
-    public function kxxx_create_menu(){
+    public function kxxx_create_menu()
+    {
         add_menu_page('kxxx_page_title', '远程抓取', 'manage_options', $this->option_group, array($this, 'kxxx_options_page_html'));
     }
 
-    public function kxxx_add_basic_fields(){
+    public function kxxx_add_basic_fields()
+    {
 
         $options = get_option($this->option_group);
         $basic_fields = array(
-            'host'		=> array('title' => '七牛域名', 'type'=>'url', 'description'=>'设置为七牛提供的测试域名或者在七牛绑定的域名。<br /><strong>注意要域名前面要加上 http://</strong>。<br />如果博客安装的是在子目录下，比如 http://www.xxx.com/blog，这里也需要带上子目录 /blog '),
-            'fetch'     => array('title' => '图片抓取', 'type' => 'checkbox', 'description' => ''),
-            'donate'    => array('title' => '支持一下', 'type' => 'image', 'description' => '', 'src' => 'http://images.kelenews.com/jerry/tool/Wxpay.png-w15h15'),
+            'host' => array('title' => '七牛域名', 'type' => 'url', 'description' => '设置为七牛提供的测试域名或者在七牛绑定的域名。<br /><strong>注意要域名前面要加上 http://</strong>。<br />如果博客安装的是在子目录下，比如 http://www.xxx.com/blog，这里也需要带上子目录 /blog '),
+            'fetch' => array('title' => '图片抓取', 'type' => 'checkbox', 'description' => ''),
+            'donate' => array('title' => '支持一下', 'type' => 'image', 'description' => '', 'src' => 'http://images.kelenews.com/jerry/tool/Wxpay.png-w15h15'),
         );
 
-        foreach ($basic_fields as $key => $field){
+        foreach ($basic_fields as $key => $field) {
 
             $label = '<label for="' . $key . '">' . $field['title'] . '</label>';
             $field['key'] = $key;
@@ -54,32 +59,31 @@ class KxxxAdminOptions{
 
     }
 
-    public function kxxx_field_input_cb($arg){
+    public function kxxx_field_input_cb($arg)
+    {
         $value = $arg['value'] ? $arg['value'] : '';
-        if($arg['type'] == 'checkbox'){
+        if ($arg['type'] == 'checkbox') {
             $checked = $value ? 'checked' : '';
-            echo '<input id="kxxx_' . $arg['key'] . '" value="1" name="' . $arg['name'] . '"  class="" type="checkbox" '.$checked.'>  抓取远程图片到本地';
-        }elseif($arg['type'] == 'image'){
-            echo '<img src="'.$arg['src'].'">';
-        }else{
+            echo '<input id="kxxx_' . $arg['key'] . '" value="1" name="' . $arg['name'] . '"  class="" type="checkbox" ' . $checked . '>  抓取远程图片到本地';
+        } elseif ($arg['type'] == 'image') {
+            echo '<img src="' . $arg['src'] . '">';
+        } else {
             echo '<input id="kxxx_' . $arg['key'] . '" value="' . $value . '" name="' . $arg['name'] . '"  class="' . $arg['class'] . '">';
         }
         echo '<p class="description">' . $arg['description'] . '</p>';
     }
 
-    public function kxxx_options_page_html(){
+    public function kxxx_options_page_html()
+    {
 
         //检查权限
-        if(!current_user_can('manage_options')){
-            return ;
+        if (!current_user_can('manage_options')) {
+            return;
         }
 
-        if(isset($_GET['settings-updated'])){
+        if (isset($_GET['settings-updated'])) {
             add_settings_error('kxxx_messages', 'kxxx-message', '保存成功', 'updated');
         }
-//        else{
-//            add_settings_error('kxxx_messages', 'kxxx-message', '保存失败', 'error');
-//        }
 
         settings_errors('kxxx_messages');
 
@@ -97,8 +101,6 @@ class KxxxAdminOptions{
         echo '</div>';
 
     }
-
-
 
 }
 
