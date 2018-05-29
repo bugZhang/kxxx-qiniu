@@ -4,7 +4,7 @@ Donate link: http://images.kelenews.com/jerry/tool/Wxpay.jpg-w2h2
 Tags: CDN, 七牛, qiniu, 远程抓取图片
 Requires at least: 4.5
 Tested up to: 4.7
-Stable tag: 4.3
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
