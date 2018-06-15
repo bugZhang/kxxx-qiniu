@@ -61,16 +61,17 @@ class KxxxUtils
     public function kxxx_save_post_action($post, $arr)
     {
 
-        $options = $this->getKxxxOptions();
-        if (!$options || empty($options['fetch'])) {
-            return $post;
-        }
         $post_title = $post['post_title'];
         $post_name = $this->updateSlug($post_title);
         if($post_name){
             $post_name = substr($post_name, 0, 60);
             $post_name = rtrim($post_name, '-');
             $post['post_name'] = $post_name;
+        }
+
+        $options = $this->getKxxxOptions();
+        if (!$options || empty($options['fetch'])) {
+            return $post;
         }
         $content = $post['post_content'];
         if (!$content) {
