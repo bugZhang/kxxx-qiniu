@@ -65,6 +65,13 @@ class KxxxUtils
         if (!$options || empty($options['fetch'])) {
             return $post;
         }
+        $post_title = $post['post_title'];
+        $post_name = $this->updateSlug($post_title);
+        if($post_name){
+            $post_name = substr($post_name, 0, 60);
+            $post_name = rtrim($post_name, '-');
+            $post['post_name'] = $post_name;
+        }
         $content = $post['post_content'];
         if (!$content) {
             return $post;
@@ -195,5 +202,19 @@ class KxxxUtils
             }
         }
         return 0;
+    }
+
+    public function updateSlug($post_title){
+        if($post_title){
+            $url = 'http://127.0.0.1:8080/pinyin/basic/permalink?text=' . $post_title;
+//            $url = 'http://pinyin.kxxx-tool.com:8080/pinyin/basic/permalink?text=' . $post_title;
+            $response = wp_remote_retrieve_body(wp_remote_get($url));
+            if($response){
+                $response = json_decode($response, true);
+            }
+            return ($response && $response['code'] == 'success') ? $response['str'] : 0;
+        }else{
+            return 0;
+        }
     }
 }
